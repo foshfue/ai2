@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+  .slider-thumb::-webkit-slider-thumb {
+    @apply appearance-none w-2 h-8  bg-[#2563eb] cursor-pointer ring-2 ring-white/40;
+  }
+  
+  .slider-thumb::-webkit-slider-thumb:hover {
+    @apply bg-blue-700;
+  }
+
+    .cursor {
+        animation: blink 1s infinite;
+      }
+      
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+  /* Apply the monospace font and smaller size to the terminal text */
+  .terminal-text {
+    font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 12px;
+  }
+  
+
+  
+}
+
+
+

@@ -1,0 +1,933 @@
+transcript {
+    status: 200,
+    statusText: 'OK',
+    headers: AxiosHeaders {
+      date: 'Fri, 23 Dec 2022 20:34:23 GMT',
+      'content-type': 'application/json',
+      'content-length': '302326',
+      connection: 'close',
+      'x-amzn-requestid': 'bcc0d576-ceea-468a-b11d-c9ab542c66cd',
+      'x-amzn-trace-id': 'Root=1-63a610ce-420044a9732b39e1036a1ca8;Sampled=0',
+      'x-amz-apigw-id': 'dneQTF3DIAMFvsQ=',
+      'x-ratelimit-requests-limit': '100',
+      'x-ratelimit-requests-remaining': '81',
+      'x-ratelimit-requests-reset': '85819',
+      server: 'RapidAPI-1.2.8',
+      'x-rapidapi-version': '1.2.8',
+      'x-rapidapi-region': 'AWS - eu-central-1'
+    },
+    config: {
+      transitional: {
+        silentJSONParsing: true,
+        forcedJSONParsing: true,
+        clarifyTimeoutError: false
+      },
+      adapter: [ 'xhr', 'http' ],
+      transformRequest: [ [Function: transformRequest] ],
+      transformResponse: [ [Function: transformResponse] ],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: { FormData: [Function], Blob: null },
+      validateStatus: [Function: validateStatus],
+      headers: AxiosHeaders {
+        Accept: 'application/json, text/plain, */*',
+        'X-RapidAPI-Key': 'ab627a5541msh6ecc9af506b5d00p146771jsn7cea8ffe6c19',
+        'X-RapidAPI-Host': 'subtitles-for-youtube.p.rapidapi.com',
+        'User-Agent': 'axios/1.2.1',
+        'Accept-Encoding': 'gzip, compress, deflate, br'
+      },
+      method: 'get',
+      url: 'https://subtitles-for-youtube.p.rapidapi.com/subtitles/JRPChBZ0Rjo',
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype] {
+        abort: [Function (anonymous)],
+        aborted: [Function (anonymous)],
+        connect: [Function (anonymous)],
+        error: [Function (anonymous)],
+        socket: [Function (anonymous)],
+        timeout: [Function (anonymous)],
+        prefinish: [Function: requestOnPrefinish]
+      },
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: TLSSocket {
+        _tlsOptions: [Object],
+        _secureEstablished: true,
+        _securePending: false,
+        _newSessionPending: false,
+        _controlReleased: true,
+        secureConnecting: false,
+        _SNICallback: null,
+        servername: 'subtitles-for-youtube.p.rapidapi.com',
+        alpnProtocol: false,
+        authorized: true,
+        authorizationError: null,
+        encrypted: true,
+        _events: [Object: null prototype],
+        _eventsCount: 10,
+        connecting: false,
+        _hadError: false,
+        _parent: null,
+        _host: 'subtitles-for-youtube.p.rapidapi.com',
+        _readableState: [ReadableState],
+        _maxListeners: undefined,
+        _writableState: [WritableState],
+        allowHalfOpen: false,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: undefined,
+        _server: null,
+        ssl: [TLSWrap],
+        _requestCert: true,
+        _rejectUnauthorized: true,
+        parser: null,
+        _httpMessage: [Circular *1],
+        [Symbol(res)]: [TLSWrap],
+        [Symbol(verified)]: true,
+        [Symbol(pendingSession)]: null,
+        [Symbol(async_id_symbol)]: 149210,
+        [Symbol(kHandle)]: [TLSWrap],
+        [Symbol(lastWriteQueueSize)]: 0,
+        [Symbol(timeout)]: null,
+        [Symbol(kBuffer)]: null,
+        [Symbol(kBufferCb)]: null,
+        [Symbol(kBufferGen)]: null,
+        [Symbol(kCapture)]: false,
+        [Symbol(kSetNoDelay)]: false,
+        [Symbol(kSetKeepAlive)]: true,
+        [Symbol(kSetKeepAliveInitialDelay)]: 60,
+        [Symbol(kBytesRead)]: 0,
+        [Symbol(kBytesWritten)]: 0,
+        [Symbol(connect-options)]: [Object],
+        [Symbol(RequestTimeout)]: undefined
+      },
+      _header: 'GET /subtitles/JRPChBZ0Rjo HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'X-RapidAPI-Key: ab627a5541msh6ecc9af506b5d00p146771jsn7cea8ffe6c19\r\n' +
+        'X-RapidAPI-Host: subtitles-for-youtube.p.rapidapi.com\r\n' +
+        'User-Agent: axios/1.2.1\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: subtitles-for-youtube.p.rapidapi.com\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: Agent {
+        _events: [Object: null prototype],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        defaultPort: 443,
+        protocol: 'https:',
+        options: [Object: null prototype],
+        requests: [Object: null prototype] {},
+        sockets: [Object: null prototype],
+        freeSockets: [Object: null prototype] {},
+        keepAliveMsecs: 1000,
+        keepAlive: false,
+        maxSockets: Infinity,
+        maxFreeSockets: 256,
+        scheduling: 'lifo',
+        maxTotalSockets: Infinity,
+        totalSocketCount: 1,
+        maxCachedSessions: 100,
+        _sessionCache: [Object],
+        [Symbol(kCapture)]: false
+      },
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      path: '/subtitles/JRPChBZ0Rjo',
+      _ended: true,
+      res: IncomingMessage {
+        _readableState: [ReadableState],
+        _events: [Object: null prototype],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        socket: [TLSSocket],
+        httpVersionMajor: 1,
+        httpVersionMinor: 1,
+        httpVersion: '1.1',
+        complete: true,
+        rawHeaders: [Array],
+        rawTrailers: [],
+        aborted: false,
+        upgrade: false,
+        url: '',
+        method: null,
+        statusCode: 200,
+        statusMessage: 'OK',
+        client: [TLSSocket],
+        _consuming: true,
+        _dumped: false,
+        req: [Circular *1],
+        responseUrl: 'https://subtitles-for-youtube.p.rapidapi.com/subtitles/JRPChBZ0Rjo',
+        redirects: [],
+        [Symbol(kCapture)]: false,
+        [Symbol(kHeaders)]: [Object],
+        [Symbol(kHeadersCount)]: 26,
+        [Symbol(kTrailers)]: null,
+        [Symbol(kTrailersCount)]: 0,
+        [Symbol(RequestTimeout)]: undefined
+      },
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'subtitles-for-youtube.p.rapidapi.com',
+      protocol: 'https:',
+      _redirectable: Writable {
+        _writableState: [WritableState],
+        _events: [Object: null prototype],
+        _eventsCount: 3,
+        _maxListeners: undefined,
+        _options: [Object],
+        _ended: true,
+        _ending: true,
+        _redirectCount: 0,
+        _redirects: [],
+        _requestBodyLength: 0,
+        _requestBodyBuffers: [],
+        _onNativeResponse: [Function (anonymous)],
+        _currentRequest: [Circular *1],
+        _currentUrl: 'https://subtitles-for-youtube.p.rapidapi.com/subtitles/JRPChBZ0Rjo',
+        [Symbol(kCapture)]: false
+      },
+      [Symbol(kCapture)]: false,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype] {
+        accept: [Array],
+        'x-rapidapi-key': [Array],
+        'x-rapidapi-host': [Array],
+        'user-agent': [Array],
+        'accept-encoding': [Array],
+        host: [Array]
+      }
+    },
+    data: [
+      {
+        index: 0,
+        start: 3.2,
+        dur: 5.38,
+        end: 8.58,
+        text: 'Alex hermosi welcome to the show'
+      },
+      {
+        index: 1,
+        start: 6.6,
+        dur: 4.56,
+        end: 11.16,
+        text: 'thank you for having me dude I cannot be'
+      },
+      {
+        index: 2,
+        start: 8.58,
+        dur: 4.559,
+        end: 13.139,
+        text: 'more excited so I want to Dive Right In'
+      },
+      {
+        index: 3,
+        start: 11.16,
+        dur: 5.219,
+        end: 16.379,
+        text: 'if somebody is starting from scratch'
+      },
+      {
+        index: 4,
+        start: 13.139,
+        dur: 5.521,
+        end: 18.66,
+        text: 'what are the traits skill sets that they'
+      },
+      {
+        index: 5,
+        start: 16.379,
+        dur: 3.861,
+        end: 20.240000000000002,
+        text: 'should be cultivating in order to up the'
+      },
+      {
+        index: 6,
+        start: 18.66,
+        dur: 5.039,
+        end: 23.698999999999998,
+        text: 'odds of their success'
+      },
+      {
+        index: 7,
+        start: 20.24,
+        dur: 4.72,
+        end: 24.959999999999997,
+        text: 'they should focus on one thing in'
+      },
+      {
+        index: 8,
+        start: 23.699,
+        dur: 2.221,
+        end: 25.92,
+        text: 'general rather than lots of different'
+      },
+      {
+        index: 9,
+        start: 24.96,
+        dur: 1.86,
+        end: 26.82,
+        text: "things that you're not sure about"
+      },
+      {
+        index: 10,
+        start: 25.92,
+        dur: 2.58,
+        end: 28.5,
+        text: "because if you're starting out"
+      },
+      {
+        index: 11,
+        start: 26.82,
+        dur: 3.9,
+        end: 30.72,
+        text: 'everything looks like an opportunity so'
+      },
+      {
+        index: 12,
+        start: 28.5,
+        dur: 4.079,
+        end: 32.579,
+        text: 'the correct answer is all of them are'
+      },
+      {
+        index: 13,
+        start: 30.72,
+        dur: 3.359,
+        end: 34.079,
+        text: "opportunities but all of them won't work"
+      },
+      {
+        index: 14,
+        start: 32.579,
+        dur: 2.881,
+        end: 35.46,
+        text: 'unless you pick one right so you have to'
+      },
+      {
+        index: 15,
+        start: 34.079,
+        dur: 3.901,
+        end: 37.980000000000004,
+        text: 'say no to all the other Mistresses so'
+      },
+      {
+        index: 16,
+        start: 35.46,
+        dur: 4.56,
+        end: 40.02,
+        text: 'boom you pick one and then from there I'
+      },
+      {
+        index: 17,
+        start: 37.98,
+        dur: 4.32,
+        end: 42.3,
+        text: 'always say six figures is sell something'
+      },
+      {
+        index: 18,
+        start: 40.02,
+        dur: 4.14,
+        end: 44.160000000000004,
+        text: "to someone that's it and if you want"
+      },
+      {
+        index: 19,
+        start: 42.3,
+        dur: 3.48,
+        end: 45.779999999999994,
+        text: 'more detail sell something to someone so'
+      },
+      {
+        index: 20,
+        start: 44.16,
+        dur: 3.78,
+        end: 47.94,
+        text: "it's one Avatar one product one channel"
+      },
+      {
+        index: 21,
+        start: 45.78,
+        dur: 3.84,
+        end: 49.620000000000005,
+        text: "so you don't have to figure out how do I"
+      },
+      {
+        index: 22,
+        start: 47.94,
+        dur: 2.7,
+        end: 50.64,
+        text: "create 20 pieces of content across it's"
+      },
+      { index: 23, start: 49.62, dur: 3.119, end: 52.739, text: 'like' },
+      {
+        index: 24,
+        start: 50.64,
+        dur: 3.419,
+        end: 54.059,
+        text: 'just pick one channel one media Source'
+      },
+      {
+        index: 25,
+        start: 52.739,
+        dur: 3.84,
+        end: 56.57899999999999,
+        text: "whether it's Facebook Instagram YouTube"
+      },
+      {
+        index: 26,
+        start: 54.059,
+        dur: 4.02,
+        end: 58.07899999999999,
+        text: 'you know whatever Twitter consistently'
+      },
+      {
+        index: 27,
+        start: 56.579,
+        dur: 2.881,
+        end: 59.46,
+        text: "start going on that whether that's cold"
+      },
+      {
+        index: 28,
+        start: 58.079,
+        dur: 3.021,
+        end: 61.1,
+        text: "outbound whether that's content whether"
+      },
+      {
+        index: 29,
+        start: 59.46,
+        dur: 4.98,
+        end: 64.44,
+        text: "it's running paid ads whether it's"
+      },
+      {
+        index: 30,
+        start: 61.1,
+        dur: 4.6,
+        end: 65.7,
+        text: 'Affiliates Word of Mouth whatever it is'
+      },
+      {
+        index: 31,
+        start: 64.44,
+        dur: 3.06,
+        end: 67.5,
+        text: 'um start reaching out to people there to'
+      },
+      {
+        index: 32,
+        start: 65.7,
+        dur: 3.66,
+        end: 69.36,
+        text: 'start selling your stuff and so if you'
+      },
+      {
+        index: 33,
+        start: 67.5,
+        dur: 4.2,
+        end: 71.7,
+        text: 'can just do that consistently and I use'
+      },
+      {
+        index: 34,
+        start: 69.36,
+        dur: 3.36,
+        end: 72.72,
+        text: "something all right what's the skill set"
+      },
+      {
+        index: 35,
+        start: 71.7,
+        dur: 3.3,
+        end: 75,
+        text: "that's going to make somebody good and"
+      },
+      {
+        index: 36,
+        start: 72.72,
+        dur: 4.68,
+        end: 77.4,
+        text: "this is six figures still yeah so what's"
+      },
+      {
+        index: 37,
+        start: 75,
+        dur: 4.2,
+        end: 79.2,
+        text: 'the skill set in that is it getting good'
+      },
+      {
+        index: 38,
+        start: 77.4,
+        dur: 3.6,
+        end: 81,
+        text: 'at the outbound is it good and good at'
+      },
+      {
+        index: 39,
+        start: 79.2,
+        dur: 3.959,
+        end: 83.159,
+        text: 'saying no to the other stuff like how do'
+      },
+      {
+        index: 40,
+        start: 81,
+        dur: 4.14,
+        end: 85.14,
+        text: 'we translate that into a skill set you'
+      },
+      {
+        index: 41,
+        start: 83.159,
+        dur: 4.801,
+        end: 87.96000000000001,
+        text: 'have to learn how to advertise which I'
+      },
+      {
+        index: 42,
+        start: 85.14,
+        dur: 3.9,
+        end: 89.04,
+        text: 'Define is the process of making known so'
+      },
+      {
+        index: 43,
+        start: 87.96,
+        dur: 2.4,
+        end: 90.36,
+        text: 'how do you let other people know about'
+      },
+      {
+        index: 44,
+        start: 89.04,
+        dur: 2.759,
+        end: 91.799,
+        text: 'the stuff you sell so you have to'
+      },
+      {
+        index: 45,
+        start: 90.36,
+        dur: 3.42,
+        end: 93.78,
+        text: "advertise there's six ways to do it I"
+      },
+      {
+        index: 46,
+        start: 91.799,
+        dur: 3.841,
+        end: 95.64,
+        text: "covered five just now so there's there's"
+      },
+      {
+        index: 47,
+        start: 93.78,
+        dur: 3,
+        end: 96.78,
+        text: 'six ways you can do it and then once'
+      },
+      {
+        index: 48,
+        start: 95.64,
+        dur: 2.7,
+        end: 98.34,
+        text: 'people engage with whatever'
+      },
+      {
+        index: 49,
+        start: 96.78,
+        dur: 3.299,
+        end: 100.07900000000001,
+        text: 'advertisement you have you have to sell'
+      },
+      {
+        index: 50,
+        start: 98.34,
+        dur: 3.84,
+        end: 102.18,
+        text: 'them so advertising is the first skill'
+      },
+      {
+        index: 51,
+        start: 100.079,
+        dur: 3.481,
+        end: 103.55999999999999,
+        text: 'selling them is the second skill and'
+      },
+      {
+        index: 52,
+        start: 102.18,
+        dur: 2.1,
+        end: 104.28,
+        text: 'then product would be the third skill'
+      },
+      {
+        index: 53,
+        start: 103.56,
+        dur: 2.879,
+        end: 106.43900000000001,
+        text: "which is the thing that you're"
+      },
+      {
+        index: 54,
+        start: 104.28,
+        dur: 4.199,
+        end: 108.479,
+        text: 'ultimately advertising and selling okay'
+      },
+      {
+        index: 55,
+        start: 106.439,
+        dur: 4.561,
+        end: 111,
+        text: 'so that gets us six figures what gets a'
+      },
+      {
+        index: 56,
+        start: 108.479,
+        dur: 4.68,
+        end: 113.15899999999999,
+        text: 'seven doing the same thing consistently'
+      },
+      {
+        index: 57,
+        start: 111,
+        dur: 3.54,
+        end: 114.54,
+        text: 'so usually once people do it in the'
+      },
+      {
+        index: 58,
+        start: 113.159,
+        dur: 3.061,
+        end: 116.22,
+        text: "beginning they're sporadic they're not"
+      },
+      {
+        index: 59,
+        start: 114.54,
+        dur: 3.6,
+        end: 118.14,
+        text: 'consistent with it just the act of doing'
+      },
+      {
+        index: 60,
+        start: 116.22,
+        dur: 3.06,
+        end: 119.28,
+        text: 'the same thing every day usually gets'
+      },
+      {
+        index: 61,
+        start: 118.14,
+        dur: 2.82,
+        end: 120.96,
+        text: 'people to'
+      },
+      {
+        index: 62,
+        start: 119.28,
+        dur: 2.82,
+        end: 122.1,
+        text: "100 000 a month which sounds crazy it's"
+      },
+      {
+        index: 63,
+        start: 120.96,
+        dur: 2.699,
+        end: 123.65899999999999,
+        text: 'probably people listening but most'
+      },
+      {
+        index: 64,
+        start: 122.1,
+        dur: 2.82,
+        end: 124.91999999999999,
+        text: "people who think that's crazy also"
+      },
+      {
+        index: 65,
+        start: 123.659,
+        dur: 3.06,
+        end: 126.71900000000001,
+        text: "haven't done it consistently for an"
+      },
+      {
+        index: 66,
+        start: 124.92,
+        dur: 4.44,
+        end: 129.36,
+        text: 'extended period of time and so I use'
+      },
+      {
+        index: 67,
+        start: 126.719,
+        dur: 4.621,
+        end: 131.34,
+        text: 'something that I call the rule 100 which'
+      },
+      {
+        index: 68,
+        start: 129.36,
+        dur: 4.56,
+        end: 133.92000000000002,
+        text: "is 100 primary actions whether that's"
+      },
+      {
+        index: 69,
+        start: 131.34,
+        dur: 5.82,
+        end: 137.16,
+        text: '100 minutes of of content creation per'
+      },
+      {
+        index: 70,
+        start: 133.92,
+        dur: 5.88,
+        end: 139.79999999999998,
+        text: 'day 100 reach outs per day uh 100 of AD'
+      },
+      {
+        index: 71,
+        start: 137.16,
+        dur: 4.74,
+        end: 141.9,
+        text: 'spend per day uh like you have to pick'
+      },
+      {
+        index: 72,
+        start: 139.8,
+        dur: 3.6,
+        end: 143.4,
+        text: 'one of them but 100 per day and you do'
+      },
+      {
+        index: 73,
+        start: 141.9,
+        dur: 4.02,
+        end: 145.92000000000002,
+        text: "that for 100 days and I promise you'll"
+      },
+      {
+        index: 74,
+        start: 143.4,
+        dur: 3.36,
+        end: 146.76000000000002,
+        text: "have you'll be making six figures if you"
+      },
+      {
+        index: 75,
+        start: 145.92,
+        dur: 3.3,
+        end: 149.22,
+        text: 'do that'
+      },
+      {
+        index: 76,
+        start: 146.76,
+        dur: 6.059,
+        end: 152.819,
+        text: "most people won't yeah I know you know"
+      },
+      {
+        index: 77,
+        start: 149.22,
+        dur: 6.36,
+        end: 155.58,
+        text: 'that they will fail at something what is'
+      },
+      {
+        index: 78,
+        start: 152.819,
+        dur: 4.56,
+        end: 157.379,
+        text: 'the most common thing that you see'
+      },
+      {
+        index: 79,
+        start: 155.58,
+        dur: 4.08,
+        end: 159.66000000000003,
+        text: 'people fail so you give them the'
+      },
+      {
+        index: 80,
+        start: 157.379,
+        dur: 5.101,
+        end: 162.48,
+        text: 'blueprint your ability to articulate a'
+      },
+      {
+        index: 81,
+        start: 159.66,
+        dur: 5.7,
+        end: 165.35999999999999,
+        text: 'blueprint to success is insane'
+      },
+      {
+        index: 82,
+        start: 162.48,
+        dur: 4.5,
+        end: 166.98,
+        text: "legitimately insane dude when I so I'm"
+      },
+      {
+        index: 83,
+        start: 165.36,
+        dur: 3.659,
+        end: 169.019,
+        text: 'gonna make a prediction right now five'
+      },
+      {
+        index: 84,
+        start: 166.98,
+        dur: 3.479,
+        end: 170.459,
+        text: 'years from now in this space you will be'
+      },
+      {
+        index: 85,
+        start: 169.019,
+        dur: 3.481,
+        end: 172.5,
+        text: 'one of the biggest people on social'
+      },
+      {
+        index: 86,
+        start: 170.459,
+        dur: 4.801,
+        end: 175.26,
+        text: 'media 100 guaranteed YouTube podcast'
+      },
+      {
+        index: 87,
+        start: 172.5,
+        dur: 4.14,
+        end: 176.64,
+        text: 'whatever because your advice is real and'
+      },
+      {
+        index: 88,
+        start: 175.26,
+        dur: 2.46,
+        end: 177.72,
+        text: 'I said I I was about to tell you'
+      },
+      {
+        index: 89,
+        start: 176.64,
+        dur: 3,
+        end: 179.64,
+        text: "something and I said I'm going to say it"
+      },
+      {
+        index: 90,
+        start: 177.72,
+        dur: 4.44,
+        end: 182.16,
+        text: 'on camera and I will tell you right now'
+      },
+      {
+        index: 91,
+        start: 179.64,
+        dur: 4.739,
+        end: 184.379,
+        text: 'I judge everybody that comes on the show'
+      },
+      {
+        index: 92,
+        start: 182.16,
+        dur: 3.6,
+        end: 185.76,
+        text: "by when I'm doing the research to bring"
+      },
+      {
+        index: 93,
+        start: 184.379,
+        dur: 3.901,
+        end: 188.28,
+        text: 'you on which is a way bigger time'
+      },
+      {
+        index: 94,
+        start: 185.76,
+        dur: 4.619,
+        end: 190.379,
+        text: 'investment than the interview itself did'
+      },
+      {
+        index: 95,
+        start: 188.28,
+        dur: 4.739,
+        end: 193.019,
+        text: 'I actually learn something did I move'
+      },
+      {
+        index: 96,
+        start: 190.379,
+        dur: 5.341,
+        end: 195.72,
+        text: 'forward did I enjoy myself dude it was'
+      },
+      {
+        index: 97,
+        start: 193.019,
+        dur: 3.961,
+        end: 196.98000000000002,
+        text: 'awesome researching you was awesome it'
+      },
+      {
+        index: 98,
+        start: 195.72,
+        dur: 2.76,
+        end: 198.48,
+        text: 'was good for the business it was good'
+      },
+      {
+        index: 99,
+        start: 196.98,
+        dur: 3.119,
+        end: 200.099,
+        text: 'for the soul good for the mindset'
+      },
+      ... 2811 more items
+    ]
+  }
