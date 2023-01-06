@@ -8,7 +8,7 @@ export const VideoBox = () => {
     const youtubeVideoId = router.query.v
 
 
-    const { data, isLoading, error } = trpc.video.getVideo.useQuery({ videoId: youtubeVideoId + "" })
+    const { data, isLoading, error } = trpc.video.getVideo.useQuery({ videoId: youtubeVideoId + "" }, { refetchOnMount: true, refetchOnWindowFocus: false, refetchOnReconnect: true })
 
     if (isLoading) return (
         < div className='m-6 flex ' >
@@ -41,26 +41,31 @@ export const VideoBox = () => {
     )
 
     return (
-        <div className='m-6 flex object-cover'>
-            <div className="aspect-video bg-red-200 w-full h-full max-w-sm flex items-center rounded-xl" style={{ overflowY: 'clip', width: '240px' }}>
+        <div className='my-6 flex object-cover '>
+            <div className="aspect-video bg-gray-200 w-full h-full max-w-sm flex items-center rounded-xl" style={{ overflowY: 'clip', width: '240px' }}>
+                {(!data?.width || !data?.height) ?
+                    <div className="bg-gray-200 w-[240px] h-[135px] rounded-xl ">
+                        <span>Error loading image</span>
+
+                    </div> :
+
+                    <Image
+                        src={data?.thumbnail || ""}
+                        alt="Picture of the author"
+                        width={data?.width / 2}
+                        height={data?.height / 2}
+                    // style={{ objectFit: "cover" }}
 
 
-                <Image
-                    src={data?.thumbnail || ""}
-                    alt="Picture of the author"
-                    width={data?.width / 2}
-                    height={data?.height / 2}
-                // style={{ objectFit: "cover" }}
-
-
-                />
+                    />
+                }
             </div>
-            <div className='flex flex-col px-4'>
+            <div className='flex flex-col px-4 max-w-sm'>
 
-                <h1 className="text-lg font-semibold" > {data?.title}</h1>
-                <h2 className='font-semibold'>{data?.channel}</h2>
+                <h1 className="text-base font-medium text-primary pb-1 " > {data?.title}</h1>
+                <h2 className=' text-sm text-b60_primary'>{data?.channel}</h2>
                 {/* <p>{video.description}</p> */}
-                <span>Video Link: www.youtube.com/watch?v={youtubeVideoId}</span>
+                <span className="text-sm text-b60_primary">Video Link: www.youtube.com/watch?v={youtubeVideoId}</span>
             </div >
         </div >
     )

@@ -14,7 +14,7 @@ const config = {
     defaultLocale: "en",
   },
   images:{
-    domains: ["i.ytimg.com"]
+    domains: ["i.ytimg.com","lh3.googleusercontent.com"]
   }
 };
 export default config;

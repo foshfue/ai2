@@ -101,7 +101,7 @@ export const summaryRouter = router({
             const chunkSize = 2500;
             const chunkValue = Math.round(words.length / chunkSize);
 
-            return chunkValue;
+            return chunkValue + 1;
           } catch (error) {
             // console.error("error geldi", error);
             return error;
@@ -152,8 +152,16 @@ export const summaryRouter = router({
                   },
                 },
               });
+
+              const summary = await ctx.prisma.summary.create({
+                data: {
+                  text: sumarized,
+                  videoId: videoId,
+                  userId: ctx.session.user.id,
+                },
+              });
             }
- 
+
             console.log("sumarized", sumarized);
             // if (mergedText.split(" ").length > chunkSize) {
             //   console.log("merged text inside");
@@ -194,5 +202,26 @@ export const summaryRouter = router({
       } catch (error) {
         console.error(error);
       }
+    }),
+
+  getSummaryById: protectedProcedure
+    .input(z.object({ summaryId: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const { id: userId } = ctx.session.user;
+      const { summaryId } = input;
+
+      const summary = await ctx.prisma.summary.findMany({
+        where: {
+          videoId: summaryId,
+          userId: userId,
+        },
+
+        include: {
+          video: true,
+        },
+      });
+      if (!summary) throw new Error("Summary not found");
+
+      return summary;
     }),
 });

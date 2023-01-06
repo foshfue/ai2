@@ -25,6 +25,9 @@ export const serverSchema = z.object({
   STRIPE_PUBLISHABLE_KEY: z.string(),
 STRIPE_SECRET_KEY: z.string(),
 STRIPE_WEBHOOK_SECRET: z.string(),
+STRIPE_PRICE_ID_1: z.string(),
+STRIPE_PRICE_ID_2: z.string(),
+STRIPE_PRICE_ID_3: z.string(),
 
 });
 

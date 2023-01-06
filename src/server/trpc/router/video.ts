@@ -26,6 +26,30 @@ import { protectedProcedure, publicProcedure, router } from "../trpc";
 // }
 
 export const videoRouter = router({
+  getVideoHistory: protectedProcedure.query(async ({ ctx }) => {
+    const userId = ctx.session.user.id;
+    console.log("user Id check", userId);
+    try {
+      const result = await ctx.prisma.searchHistory.findMany({
+        distinct: ["videoId"],
+        where: {
+          userId: userId,
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+        take: 20,
+        include: {
+          video: true,
+        },
+      });
+      console.log("result", result);
+      return result;
+    } catch (e) {
+      console.log("error inside", e);
+    }
+  }),
+
   getVideo: protectedProcedure
     .input(z.object({ videoId: z.string() }))
     .query(async ({ ctx, input }) => {
@@ -74,12 +98,12 @@ export const videoRouter = router({
                 data: {
                   youtubeId: videoId,
                   title: title,
-                  thumbnail: thumbnails?.high?.url,
+                  thumbnail: thumbnails?.maxres?.url,
                   channel: channelTitle,
                   width: thumbnails?.high?.width,
                   height: thumbnails?.high?.height,
                   url: `https://www.youtube.com/watch?v=${videoId}`,
-                  imageUrl: thumbnails?.high?.url,
+                  imageUrl: thumbnails?.maxres?.url,
                 },
               });
               console.log("newVideo", newVideo);

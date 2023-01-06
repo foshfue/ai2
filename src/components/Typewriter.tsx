@@ -32,7 +32,7 @@ export const Typewriter = ({ messages, interval = 50, cursor = '▪' }: { messag
     }, [currentIndex, currentWordIndex, messages, interval]);
 
     return (
-        <div className="text-base  antialiased tracking-wide ">
+        <div className="text-base  antialiased tracking-wide max-w-2xl ">
             {message}
             <span className="cursor">|</span>
         </div>

@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
   // Further reading:
   // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
@@ -27,12 +27,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? // @db.Text
-  access_token      String? // @db.Text
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? // @db.Text
+  id_token          String? @db.Text
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -48,18 +48,53 @@ model Session {
 }
 
 model User {
-  id                       String          @id @default(cuid())
+  id                       String                    @id @default(cuid())
   name                     String?
-  email                    String?         @unique
+  email                    String?                   @unique
   emailVerified            DateTime?
   image                    String?
   accounts                 Account[]
   sessions                 Session[]
   searchHistory            SearchHistory[]
-  coins                    Float           @default(1)
+  coins                    Float                     @default(2)
   stripeCustomerId         String?
   stripeSubscriptionId     String?
-  stripeSubscriptionStatus String?
+  stripeSubscriptionStatus StripeSubscriptionStatus?
+  stripeSubscriptionPlan   StripeSubscriptionPlan?
+  summaries                Summary[]
+}
+
+model Summary {
+  id        String   @id @default(cuid())
+  userId    String
+  videoId   String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  video     Video    @relation(fields: [videoId], references: [youtubeId], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  text      String
+  start     Float?
+  end       Float?
+  duration  Float?
+  isPublic  Boolean  @default(false)
+  likes     Int      @default(0)
+  dislikes  Int      @default(0)
+}
+
+enum StripeSubscriptionPlan {
+  basic
+  premium
+  pro
+}
+
+enum StripeSubscriptionStatus {
+  incomplete
+  incomplete_expired
+  trialing
+  active
+  past_due
+  canceled
+  unpaid
 }
 
 model SearchHistory {
@@ -70,6 +105,8 @@ model SearchHistory {
   video     Video    @relation(fields: [videoId], references: [youtubeId], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@unique([userId, videoId])
 }
 
 model Packages {
@@ -102,6 +139,7 @@ model Video {
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
   SearchHistory SearchHistory[]
+  Summary       Summary[]
 }
 
 model StripeEvent {
@@ -116,13 +154,3 @@ model StripeEvent {
   livemode         Boolean
   pending_webhooks Int
 }
-
-// enum StripeSubscriptionStatus {
-//   incomplete
-//   incomplete_expired
-//   trialing
-//   active
-//   past_due
-//   canceled
-//   unpaid
-// }
