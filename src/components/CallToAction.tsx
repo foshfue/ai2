@@ -26,7 +26,7 @@ export function CallToAction() {
           <p className="mt-4 text-lg tracking-tight text-white">
             It’s time to take control of your time. Sumari is the best way to learn from YouTube videos 10x faster. Get started today.
           </p>
-          <Button href="/register" color="white" className="mt-10" >
+          <Button href="/register" className="mt-10 bg-white" >
             Try it for free
           </Button>
         </div>

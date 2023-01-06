@@ -182,7 +182,7 @@ const AuthlessHeader = () => {
                         </Link> */}
 
 
-                    <Button href={"/api/auth/signin?callbackUrl=http://localhost:3000/watch"} color="blue" className="">
+                    <Button href={"/api/auth/signin?callbackUrl=http://localhost:3000/app"} className="bg-blue-600">
                         <span>
                             Try for free <span className="hidden lg:inline">today</span>
                         </span>
@@ -293,7 +293,7 @@ export default function Header() {
 
     const rounter = useRouter();
     const { pathname } = rounter;
-    const isWatchPage = pathname === '/watch';
+    const isWatchPage = pathname === '/app';
 
     return (
         <header className={`${isSessionData ? "py-2 bg-background_primary border-b border-b-black/5" : "py-10"}`}>

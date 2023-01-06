@@ -82,9 +82,9 @@ function Plan({ name, price, description, href, features, featured = false }: { 
       </ul>
       <Button
         href={href}
-        variant={featured ? 'solid' : 'outline'}
-        color="white"
-        className="mt-8"
+        // variant={featured ? 'solid' : 'outline'}
+        // color="white"
+        className="mt-8 bg-white"
         aria-label={`Get started with the ${name} plan for ${price}`}
       >
         Get started

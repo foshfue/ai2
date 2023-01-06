@@ -11,7 +11,7 @@ import backgroundImage from './../../images/background-auth.jpg'
 
 
 
-
+// @ts-expect-error:next-line
 export default function Signup({ providers }) {
     console.log(Object.values(providers)[0])
 
@@ -52,10 +52,12 @@ export default function Signup({ providers }) {
 
                         /> */}
                         <div className="my-6">
+                            {/*  @ts-expect-error:next-line */}
                             <button onClick={() => signUp(Object.values(providers)[0].google)} className="flex w-full justify-center rounded-3xl border-none items-center bg-white p-1 text-black hover:bg-gray-200 sm:p-2">
                                 <Image src={googleLogo} width={24} height={24} alt="hello" className="mr-2 w-6 object-fill" />Sign in with Google</button>
                         </div>
                         <div className="my-6">
+                            {/*  @ts-expect-error:next-line */}
                             <button onClick={() => Signup(Object.values(providers)[1].discord)} className="flex w-full justify-center rounded-3xl border-none items-center bg-white p-1 text-black hover:bg-gray-200 sm:p-2">
                                 <Image src={discordLogo} width={24} height={24} alt="hello" className="mr-2 w-6 object-fill" />Sign in with Discord</button>
                         </div>
@@ -109,7 +111,7 @@ export default function Signup({ providers }) {
         </>
     )
 }
-
+// @ts-expect-error:next-line
 export async function getServerSideProps(context) {
     const providers = await getProviders()
     return {

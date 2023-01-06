@@ -46,7 +46,7 @@ export default function Hero() {
                     <Button
                         className=""
 
-                        href={sessionData ? "/watch" : "/api/auth/signin?callbackUrl=http://localhost:3000/watch"}
+                        href={sessionData ? "/app" : "/api/auth/signin?callbackUrl=http://localhost:3000/app"}
                     >
                         Try Your Favorite Video
 

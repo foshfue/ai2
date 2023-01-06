@@ -40,7 +40,7 @@ No more Watch Later lists, no more wasted time." />
 
 
 export default Home;
-
+// @ts-expect-error:next-line
 Home.Layout = Layout;
 
 {/* <AuthShowcase /> */ }

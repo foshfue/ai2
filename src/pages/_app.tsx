@@ -1,11 +1,11 @@
 import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-
+import { ReactNode, FC } from "react";
 import { trpc } from "../utils/trpc";
 
 import "../styles/globals.css";
-import Containter from "../components/container";
+
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
 

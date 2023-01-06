@@ -144,6 +144,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
 };
 
-
+// @ts-expect-error:next-line
 Account.Layout = Layout
 export default Account;

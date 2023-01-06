@@ -25,21 +25,14 @@ const variantStyles = {
 }
 
 export function Button({
-  variant = 'solid',
-  color = 'slate',
+  children,
   className,
   href,
-  ...props
-}) {
-  className = clsx(
-    baseStyles[variant],
-    variantStyles[variant][color],
-    className
-  )
+}: { className: string, href: string, children: React.ReactNode }) {
 
   return href ? (
-    <Link href={href} className={className} {...props} />
+    <Link href={href} className={className} >{children}</Link>
   ) : (
-    <button className={className} {...props} />
+    <button className={className} >{children}</button>
   )
 }

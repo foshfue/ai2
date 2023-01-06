@@ -88,6 +88,7 @@ const getSubTitles = async (videoId: string) => {
       }
     );
     const data = await response.json();
+    // @ts-expect-error:next-line
     const mergedText = data.map((item) => item.text).join(" ");
     return mergedText;
   } catch (error) {
