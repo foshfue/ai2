@@ -3,8 +3,9 @@ import { CopyCodeButton } from '../CodeCodeButton'
 import { Typewriter } from '../Typewriter'
 import { useRouter } from 'next/router'
 import { trpc } from '../../utils/trpc'
+import { SummaryCostButton } from './SummaryCostButton'
 
-export const SummaryText = ({ textCost, boxRevaled, setBoxRevaled }: { textCost: string, boxRevaled: boolean, setBoxRevaled: React.Dispatch<React.SetStateAction<boolean>> }) => {
+export const SummaryText = ({ boxRevaled, setBoxRevaled }: { boxRevaled: boolean, setBoxRevaled: React.Dispatch<React.SetStateAction<boolean>> }) => {
 
     const router = useRouter()
     const youtubeVideoId = router.query.v
@@ -34,12 +35,12 @@ export const SummaryText = ({ textCost, boxRevaled, setBoxRevaled }: { textCost:
     }
 
     return (
-        <>
+        <div>
 
             {!boxRevaled && youtubeVideoId && <div className='my-6 flex flex-col gap-4'>
-                <button className='bg-black text-white p-4 font-semibold text-lg rounded-lg' onClick={(e) => handleClick(e)}>
-                    Generate AI Summary ({textCost} coins)
-                </button>
+
+                <SummaryCostButton handleClick={handleClick}></SummaryCostButton>
+
                 <span className='text-sm'>AI Summary cost depends of the lenght of the video.</span>
             </div>
             }
@@ -65,6 +66,6 @@ export const SummaryText = ({ textCost, boxRevaled, setBoxRevaled }: { textCost:
                 </div>}
             </div >
 
-        </>
+        </div>
     )
 }

@@ -21,9 +21,9 @@ export default function History() {
                 <h3 className='text-3xl font-bold mt-12 mb-6'>History</h3>
             </div>
 
-            <div className='flex  gap-4 flex-wrap w-full '>
-                {data && data.map((video) => {
 
+            <div className='grid  gap-4 sm:grid-cols-2 grid-cols-1 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 w-full'>
+                {data && data.map((video) => {
 
                     return (<VideoCard key={video.id} video={video} />)
 
@@ -33,8 +33,8 @@ export default function History() {
                 <VideoCard />
                 <VideoCard /> */}
 
-            </div>
 
+            </div>
         </div>
     )
 }

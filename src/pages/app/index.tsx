@@ -62,31 +62,9 @@ export default function Watch() {
     const [search, setSearch] = useState("")
 
 
-
-    const [textCost, setTextCost] = useState("")
-
-
-    const getCostMutation = trpc.summary.getCost.useMutation().mutateAsync
-
-    useEffect(() => {
-        if (typeof youtubeVideoId === 'string' && youtubeVideoId.length > 4) {
-            getCostMutation({ videoId: youtubeVideoId }, {
-                onSuccess: (data) => {
-                    setTextCost(String(data))
-                },
-            })
-        }
-    }, [getCostMutation, youtubeVideoId])
-
-    console.log("textCost ", textCost)
-
-
     const refSearch = useRef<HTMLInputElement>(null);
 
-
-
-
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault()
         if (refSearch.current) {
 
@@ -94,15 +72,10 @@ export default function Watch() {
         }
 
         const videoId = search.split('v=')[1]
-        router.replace({ query: { v: videoId } })
+        router.push({ query: { v: videoId } })
     }
 
-    console.log("search", search)
-    // const summaryAvbl = textSummary.length < 10 ? true : false
 
-    console.log("test", (youtubeVideoId))
-
-    // ${boxRevaled ? "py-20" : ""}
     return (
         <div className={`${boxRevaled ? " sm:py-4" : " sm:py-32"}  "bg-background_primary  w-full flex  justify-center -mt-20"`}>
             <div className=" max-w-3xl w-full min-h-screen mx-6 ">
@@ -137,10 +110,6 @@ export default function Watch() {
                                     placeholder='Enter the video link: www.youtube.com/watch?v=j23SO29LNWE' onChange={(e) => { setSearch(e.target.value) }}
                                 ></input>
                             </div>
-                            {/* <button type='submit' className='bg-black text-white font-semibold text-xl  py-4 px-5 rounded-3xl '>
-                                Find the video
-                            </button> */}
-
                             <button type="submit" className=" text-text_secondary px-6 h-full  py-3 text-base font-bold  ml-4 shadow-md rounded-md border-[#ececf1] bg-b0 border">
                                 Search
                             </button>
@@ -148,40 +117,8 @@ export default function Watch() {
                     </form>
                 </div>
 
-                {youtubeVideoId &&
-
-                    <VideoBox />
-
-                }
-                {/* {!boxRevaled && youtubeVideoId && <div className='my-6 flex flex-col gap-4'>
-                    <button className='bg-black text-white p-4 font-semibold text-lg rounded-lg' onClick={(e) => handleClick(e)}>
-                        Generate AI Summary ({textCost} coins)
-                    </button>
-                    <span className='text-sm'>AI Summary cost depends of the lenght of the video.</span>
-                </div>
-                }
-                <div className='py-16'>
-                    {boxRevaled && <div className="terminal bg-b60_primary rounded-md text-white py-10 px-10">
-                        <div>
-                            <div className="terminal-header flex justify-between items-start  pb-3">
-                                <div className="font-semibold text-lg">AI Generated Summary</div>
-                                <CopyCodeButton code={textSummary} summaryAvbl={summaryAvbl} />
-                            </div>
-                            {summaryAvbl &&
-
-                                <span>Analyzing the video... This might take upto 30 seconds... <span></span><span className='cursor'>|</span></span>}
-                        </div>
-                        <div>
-                            {!summaryAvbl &&
-                                <div >
-                                    <Typewriter messages={[textSummary]} interval={50} cursor='▪' />
-                                </div>
-                            }
-                        </div>
-
-                    </div>}
-                </div > */}
-                <SummaryText boxRevaled={boxRevaled} setBoxRevaled={setBoxRevaled} textCost={textCost} />
+                {youtubeVideoId && <VideoBox />}
+                <SummaryText boxRevaled={boxRevaled} setBoxRevaled={setBoxRevaled} />
             </div >
         </div>
 

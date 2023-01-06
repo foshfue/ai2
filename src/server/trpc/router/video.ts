@@ -40,7 +40,15 @@ export const videoRouter = router({
         },
         take: 20,
         include: {
-          video: true,
+          video: {
+            include: {
+              Summary: {
+                where: {
+                  userId: userId,
+                },
+              },
+            },
+          },
         },
       });
       console.log("result", result);
@@ -68,13 +76,27 @@ export const videoRouter = router({
           const searchLogAdd = await ctx.prisma.searchHistory
             .create({
               data: {
-                videoId: result.youtubeId + "",
+                videoId: videoId,
                 userId: userId,
               },
             })
             .catch((e) => {
               console.log("searchLogAdd error", e);
             });
+          if (!searchLogAdd) {
+            console.log("searchLogUpdated");
+            const searchLogUpdated = await ctx.prisma.searchHistory.update({
+              data: {
+                lastSearchDate: new Date(),
+              },
+              where: {
+                userId_videoId: {
+                  userId: userId,
+                  videoId: videoId,
+                },
+              },
+            });
+          }
           console.log("searchLogAdd", searchLogAdd);
           return result;
         }

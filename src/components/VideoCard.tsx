@@ -1,13 +1,16 @@
-import { SearchHistory, Video } from '@prisma/client';
+import { SearchHistory, Summary, Video } from '@prisma/client';
+import { VALID_LOADERS } from 'next/dist/shared/lib/image-config';
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 
 export default function VideoCard({ video }: {
-    video: SearchHistory & {
-        video: Video;
-    }
+    video: (SearchHistory & {
+        video: Video & {
+            Summary: Summary[];
+        };
+    })
 }) {
 
 
@@ -15,17 +18,25 @@ export default function VideoCard({ video }: {
 
     return (
         <>
-            <Link href={`/app/history/video?vID=${video.videoId}`}>
+            <Link href={video.video.Summary.length > 0 ? `/app/history/video?vID=${video.videoId}` : `/app?v=${video.videoId}`}>
                 <div className=' w-full  cursor-pointer sm:max-w-sm'>
                     <div>
 
 
                     </div>
                     <div className='aspect-video relative w-full'>
-                        <div className='absolute top-0 right-0 bg-green-100 text-green-800 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs mt-1 mr-1 font-medium capitalize z-10'
+                        {video.video.Summary.length > 0 ?
+                            <div className='absolute top-0 right-0 bg-green-100 text-green-800 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs mt-1 mr-1 font-medium capitalize z-10'
 
 
-                        >Summarized</div>
+                            >Summarized</div>
+
+                            :
+                            <div className='absolute top-0 right-0 bg-danger text-red-900 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs mt-1 mr-1 font-medium capitalize z-10'
+
+
+                            >Summarize Now</div>
+                        }
                         {
                             video.video.imageUrl ?
 
