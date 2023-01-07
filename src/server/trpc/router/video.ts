@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
+import { env } from "../../../env/server.mjs";
 
 // export async function getVideoInfo({ videoId }: { videoId: string }) {
 //   const videoData = await fetch(
@@ -102,7 +103,7 @@ export const videoRouter = router({
         }
         if (result === null) {
           const videoData = await fetch(
-            `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCpvQ5GDVHFbB3uNVEZnNlP-67RXZKp-Xw&part=snippet&id=${videoId}`
+            `https://www.googleapis.com/youtube/v3/videos?key=${env.GOOGLE_VIDEO_SECRET}&part=snippet&id=${videoId}`
           )
             .then((res) => res.json())
             .then((data) => {

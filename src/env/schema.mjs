@@ -28,6 +28,7 @@ STRIPE_WEBHOOK_SECRET: z.string(),
 STRIPE_PRICE_ID_1: z.string(),
 STRIPE_PRICE_ID_2: z.string(),
 STRIPE_PRICE_ID_3: z.string(),
+GOOGLE_VIDEO_SECRET: z.string(),
 });
 
 /**
