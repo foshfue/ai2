@@ -72,7 +72,7 @@ export default function SignIn({ providers }) {
                     <p className="mt-2 text-sm text-gray-700">
                         Have an account?{' '}
                         <Link
-                            href="/register"
+                            href="/auth/login"
                             className="font-medium text-blue-600 hover:underline"
                         >
                             Sign in

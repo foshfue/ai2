@@ -11,16 +11,21 @@ export const VideoBox = () => {
     const { data, isLoading, error } = trpc.video.getVideo.useQuery({ videoId: youtubeVideoId + "" }, { refetchOnMount: true, refetchOnWindowFocus: false, refetchOnReconnect: true })
 
     if (isLoading) return (
-        < div className='m-6 flex ' >
-            <div className='w-[213px] h-[168px] bg-gray-300 text-center'>
-                Loading...
+        < div className='my-6 flex ' >
+            <div className='aspect-video relative w-full max-w-[240px]'>
+
+
+                <div className='w-full h-full bg-gray-200 rounded-lg animate-pulse flex justify-center items-center'>
+                    <span className='animate-bounce'>Loading...</span>
+                </div>
             </div>
+            <div className="w-full pt-2 ">
+                <div className='flex flex-col px-4 gap-y-2'>
+                    <div className='w-1/2 h-[16px] rounded-full bg-gray-200 animate-pulse'></div>
+                    <div className='w-1/4 h-[10px] rounded-full bg-gray-200  animate-pulse'></div>
+                    <div className='w-1/4 h-[10px] rounded-full bg-gray-200  animate-pulse'></div>
 
-            <div className='flex flex-col px-4'>
-                <div className='w-full h-[20px] rounded-full bg-gray-200'></div>
-                <div className='w-1/4 h-[18px] rounded-full bg-gray-200'></div>
-                <div className='w-1/8 h-[14px] rounded-full bg-gray-200'></div>
-
+                </div>
             </div>
         </div >
     )

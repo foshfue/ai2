@@ -28,7 +28,6 @@ STRIPE_WEBHOOK_SECRET: z.string(),
 STRIPE_PRICE_ID_1: z.string(),
 STRIPE_PRICE_ID_2: z.string(),
 STRIPE_PRICE_ID_3: z.string(),
-
 });
 
 /**
@@ -38,6 +37,7 @@ STRIPE_PRICE_ID_3: z.string(),
  */
 export const clientSchema = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string(),
+  NEXT_PUBLIC_URL: z.string().url(),
 });
 
 /**
@@ -48,4 +48,5 @@ export const clientSchema = z.object({
  */
 export const clientEnv = {
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+  NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
 };

@@ -33,6 +33,6 @@ export function Button({
   return href ? (
     <Link href={href} className={className} >{children}</Link>
   ) : (
-    <button className={className} >{children}</button>
+    <button className={className} ></button>
   )
 }

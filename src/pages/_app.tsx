@@ -7,6 +7,7 @@ import { trpc } from "../utils/trpc";
 import "../styles/globals.css";
 
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import Head from "../components/Head";
 
 
 const queryClient = new QueryClient()
@@ -24,7 +25,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>
-
+        <Head />
         <Layout pageProps={pageProps}>
           <Component {...pageProps} />
         </Layout>

@@ -9,9 +9,10 @@ import { Logo } from './Logo';
 import { NavLink } from './NavLink';
 import { Button } from './Button';
 import { trpc } from '../utils/trpc';
-import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { BoltIcon } from '@heroicons/react/24/solid'
+import { env } from '../env/client.mjs';
+
 
 
 function MobileNavLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -88,7 +89,7 @@ function MobileNavigation() {
                         <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
                         <MobileNavLink href="#pricing">Pricing</MobileNavLink>
                         <hr className="m-2 border-slate-300/40" />
-                        <MobileNavLink href="/login">Sign in</MobileNavLink>
+                        <MobileNavLink href="/auth/login">Sign in</MobileNavLink>
                     </Popover.Panel>
                 </Transition.Child>
             </Transition.Root>
@@ -133,7 +134,7 @@ function AuthMobileNavigation() {
                         <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
                         <MobileNavLink href="#pricing">Pricing</MobileNavLink>
                         <hr className="m-2 border-slate-300/40" />
-                        <MobileNavLink href="/login">Sign in</MobileNavLink>
+                        <MobileNavLink href="/auth/login">Sign in</MobileNavLink>
                     </Popover.Panel>
                 </Transition.Child>
             </Transition.Root>
@@ -166,12 +167,12 @@ const AuthlessHeader = () => {
                         <NavLink href="/#features">Features</NavLink>
                         <NavLink href="/#pricing">Pricing</NavLink>
                         <NavLink href="/#testimonials">Testimonials</NavLink>
-                        <NavLink href="/blogs">Blogs</NavLink>
+                        {/* <NavLink href="/blogs">Blogs</NavLink> */}
                     </div>
                 </div>
                 <div className="flex items-center gap-x-5 md:gap-x-8">
                     <div className="hidden md:block">
-                        <NavLink href={"/api/auth/signin"}> Sign in</NavLink>
+                        <NavLink href={"/auth/register"}> Sign in</NavLink>
                     </div>
                     {/* <Link href="/watch">
                             <Button color="blue">
@@ -182,7 +183,7 @@ const AuthlessHeader = () => {
                         </Link> */}
 
 
-                    <Button href={"/api/auth/signin?callbackUrl=http://localhost:3000/app"} className="bg-blue-600">
+                    <Button href={`/auth/register?callbackUrl=${env.NEXT_PUBLIC_URL}/app`} className="bg-blue-600">
                         <span>
                             Try for free <span className="hidden lg:inline">today</span>
                         </span>
@@ -293,10 +294,9 @@ export default function Header() {
 
     const rounter = useRouter();
     const { pathname } = rounter;
-    const isWatchPage = pathname === '/app';
 
     return (
-        <header className={`${isSessionData ? "py-2 bg-background_primary border-b border-b-black/5" : "py-10"}`}>
+        <header className={`${isSessionData ? "py-2 bg-background_primary  border-b border-b-black/5" : "py-10"}`}>
             <Container className='  '>
                 {!isSessionData ? <AuthlessHeader /> :
                     <AuthHeader isSessionData={isSessionData} userId={userId} userImage={userImage} />}

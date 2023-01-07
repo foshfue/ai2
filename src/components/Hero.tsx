@@ -2,6 +2,7 @@ import { useSession } from 'next-auth/react';
 
 import React from 'react'
 import { Button } from './Button';
+import { env } from '../env/client.mjs';
 
 export default function Hero() {
     const { data: sessionData } = useSession();
@@ -34,7 +35,7 @@ export default function Hero() {
                         </a>
                     </div> */}
                 </div>
-                <div className='flex items-center flex-col justify-center absolute -z-10  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-40'>
+                <div className='flex items-center flex-col justify-center w-full absolute -z-10  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-40'>
                     <div className='flex flex-row mt-52'>
                         <div className='rounded-full h-96 w-96  -mx-16 blur-3xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ' />
                         <div className='rounded-full h-96 w-96  -mx-16   blur-3xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600' />
@@ -46,7 +47,7 @@ export default function Hero() {
                     <Button
                         className=""
 
-                        href={sessionData ? "/app" : "/api/auth/signin?callbackUrl=http://localhost:3000/app"}
+                        href={sessionData ? "/app" : `/auth/register?callbackUrl=${env.NEXT_PUBLIC_URL}/app`}
                     >
                         Try Your Favorite Video
 

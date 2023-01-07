@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 No more Watch Later lists, no more wasted time." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className=" w-full flex flex-col items-center ">
+      <div className=" w-full flex flex-col items-center  ">
         <HomepageHero />
         <Metrics />
         <HourCalculator />

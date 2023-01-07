@@ -83,7 +83,7 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-label="What our customers are saying"
-      className="bg-slate-50 py-20 sm:py-32"
+      className="bg-slate-50 py-20 sm:py-32 w-full"
     >
       <Container className=''>
         <div className="mx-auto max-w-2xl md:text-center">
